@@ -1,0 +1,260 @@
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--gold:#b8975a;--gold-light:#e8d5a3;--soft:#f7f5f1;--border:#e2ddd4;}
+body{font-family:'Georgia',serif;color:var(--color-text-primary);background:var(--color-background-primary);line-height:1.6;}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2.5rem;border-bottom:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);}
+.logo{font-size:1.2rem;font-weight:500;letter-spacing:0.04em;}
+.nav-links{display:flex;gap:1.8rem;}
+.nav-links a{text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-secondary);font-family:system-ui,sans-serif;}
+.nav-links a:hover{color:var(--gold);}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:4rem 2.5rem;background:var(--soft);}
+.hero-tag{font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-family:system-ui,sans-serif;margin-bottom:1rem;}
+.hero h1{font-size:3rem;font-weight:400;line-height:1.2;color:var(--color-text-primary);}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-bio{margin-top:1.2rem;font-size:0.95rem;color:var(--color-text-secondary);font-family:system-ui,sans-serif;line-height:1.8;max-width:380px;}
+.contact-chips{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem;}
+.chip{display:flex;align-items:center;gap:6px;font-size:0.78rem;font-family:system-ui,sans-serif;color:var(--color-text-secondary);background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);padding:0.35rem 0.8rem;border-radius:var(--border-radius-md);}
+.chip i{font-size:14px;color:var(--gold);}
+.chip a{color:var(--color-text-secondary);text-decoration:none;}
+.chip a:hover{color:var(--gold);}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+.stat{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);padding:1.2rem;text-align:center;}
+.stat-n{font-size:2.4rem;font-weight:400;color:var(--color-text-primary);}
+.stat-n span{color:var(--gold);}
+.stat-l{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-secondary);font-family:system-ui,sans-serif;margin-top:0.2rem;}
+section{padding:3.5rem 2.5rem;}
+.sec-label{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-family:system-ui,sans-serif;margin-bottom:0.5rem;}
+.sec-title{font-size:2rem;font-weight:400;color:var(--color-text-primary);margin-bottom:2rem;}
+.divider{width:36px;height:1px;background:var(--gold);margin:0.6rem 0 2rem;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.8rem;}
+.skill-pill{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);padding:0.7rem 1rem;border-radius:var(--border-radius-md);font-size:0.85rem;font-family:system-ui,sans-serif;color:var(--color-text-primary);display:flex;align-items:center;gap:8px;}
+.skill-pill i{font-size:16px;color:var(--gold);}
+.exp-list{display:flex;flex-direction:column;gap:1.5rem;}
+.exp-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem;}
+.exp-role{font-size:1.1rem;font-weight:500;color:var(--color-text-primary);font-family:system-ui,sans-serif;}
+.exp-date{font-size:0.78rem;font-family:system-ui,sans-serif;color:var(--color-text-secondary);background:var(--soft);border:0.5px solid var(--border);padding:0.25rem 0.7rem;border-radius:var(--border-radius-md);white-space:nowrap;}
+.exp-company{font-size:0.85rem;color:var(--gold);font-family:system-ui,sans-serif;margin-bottom:0.8rem;}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
+.exp-points li{font-size:0.85rem;font-family:system-ui,sans-serif;color:var(--color-text-secondary);padding-left:1rem;position:relative;}
+.exp-points li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;}
+.proj-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;display:flex;flex-direction:column;gap:0.8rem;}
+.proj-card:hover{border-color:var(--gold);}
+.proj-tag{display:inline-flex;align-items:center;gap:5px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#854F0B;background:#FAEEDA;border:0.5px solid #FAC775;padding:0.25rem 0.7rem;border-radius:var(--border-radius-md);font-family:system-ui,sans-serif;width:fit-content;}
+.proj-tag i{font-size:13px;}
+.proj-title{font-size:1.05rem;font-weight:500;color:var(--color-text-primary);font-family:system-ui,sans-serif;}
+.proj-desc{font-size:0.85rem;color:var(--color-text-secondary);font-family:system-ui,sans-serif;line-height:1.7;}
+.proj-footer{display:flex;align-items:center;justify-content:space-between;padding-top:0.8rem;border-top:0.5px solid var(--color-border-tertiary);margin-top:auto;}
+.proj-tool{font-size:0.78rem;color:var(--color-text-secondary);font-family:system-ui,sans-serif;display:flex;align-items:center;gap:5px;}
+.proj-tool i{font-size:14px;color:var(--gold);}
+.proj-link{display:inline-flex;align-items:center;gap:4px;font-size:0.78rem;font-family:system-ui,sans-serif;color:var(--gold);text-decoration:none;border:0.5px solid var(--gold-light);padding:0.25rem 0.7rem;border-radius:var(--border-radius-md);}
+.proj-link:hover{background:var(--gold-light);}
+.proj-link i{font-size:13px;}
+.contact-section{background:var(--soft);padding:3.5rem 2.5rem;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.contact-title{font-size:2rem;font-weight:400;margin-bottom:0.8rem;}
+.contact-desc{font-size:0.9rem;font-family:system-ui,sans-serif;color:var(--color-text-secondary);line-height:1.8;}
+.contact-details{margin-top:1.5rem;display:flex;flex-direction:column;gap:0.8rem;}
+.c-detail{display:flex;align-items:center;gap:10px;font-size:0.88rem;font-family:system-ui,sans-serif;color:var(--color-text-secondary);}
+.c-detail i{font-size:16px;color:var(--gold);width:18px;}
+.c-detail a{color:var(--color-text-secondary);text-decoration:none;}
+.c-detail a:hover{color:var(--gold);}
+.form{display:flex;flex-direction:column;gap:1rem;}
+.fl{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-secondary);font-family:system-ui,sans-serif;margin-bottom:0.3rem;display:block;}
+.fi{width:100%;border:0.5px solid var(--color-border-secondary);padding:0.65rem 0.9rem;font-family:system-ui,sans-serif;font-size:0.88rem;background:var(--color-background-primary);color:var(--color-text-primary);border-radius:var(--border-radius-md);outline:none;}
+.fi:focus{border-color:var(--gold);}
+textarea.fi{min-height:90px;resize:vertical;}
+.btn{background:var(--color-text-primary);color:var(--color-background-primary);padding:0.7rem 1.8rem;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:system-ui,sans-serif;border-radius:0;margin-top:0.3rem;}
+.btn:hover{background:var(--gold);}
+footer{text-align:center;padding:1.5rem;border-top:0.5px solid var(--color-border-tertiary);font-size:0.78rem;color:var(--color-text-secondary);font-family:system-ui,sans-serif;letter-spacing:0.05em;}
+</style>
+
+<nav>
+  <div class="logo">Diana Fitri</div>
+  <div class="nav-links">
+    <a href="#hero">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero" id="hero">
+  <div>
+    <div class="hero-tag">Personal Assistant &amp; Data Entry Specialist</div>
+    <h1>Organized.<br>Precise.<br><em>Dependable.</em></h1>
+    <p class="hero-bio">Detail-oriented professional based in Banyuwangi, Indonesia with hands-on experience in administrative support, data management, and operational coordination. I help businesses stay organized, accurate, and running smoothly — remotely or on-site.</p>
+    <div class="contact-chips">
+      <div class="chip"><i class="ti ti-map-pin" aria-hidden="true"></i>Banyuwangi, Indonesia</div>
+      <div class="chip"><i class="ti ti-mail" aria-hidden="true"></i><a href="mailto:dianafitristorage@gmail.com">dianafitristorage@gmail.com</a></div>
+      <div class="chip"><i class="ti ti-phone" aria-hidden="true"></i>+62 882-2005-3143</div>
+      <div class="chip"><i class="ti ti-brand-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/dianamaniatulfitri/" target="_blank">LinkedIn</a></div>
+      <div class="chip"><i class="ti ti-world" aria-hidden="true"></i>Remote available</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">3<span>+</span></div><div class="stat-l">Years experience</div></div>
+    <div class="stat"><div class="stat-n">99<span>%</span></div><div class="stat-l">Accuracy rate</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Companies served</div></div>
+    <div class="stat"><div class="stat-n">S1</div><div class="stat-l">Law graduate</div></div>
+  </div>
+</div>
+
+<section id="skills">
+  <div class="sec-label">What I offer</div>
+  <div class="sec-title">Skills &amp; Expertise</div>
+  <div class="skills-grid">
+    <div class="skill-pill"><i class="ti ti-calendar" aria-hidden="true"></i>Calendar Management</div>
+    <div class="skill-pill"><i class="ti ti-mail" aria-hidden="true"></i>Email Handling</div>
+    <div class="skill-pill"><i class="ti ti-file-text" aria-hidden="true"></i>Document Management</div>
+    <div class="skill-pill"><i class="ti ti-table" aria-hidden="true"></i>Data Entry</div>
+    <div class="skill-pill"><i class="ti ti-brand-office" aria-hidden="true"></i>Microsoft Office</div>
+    <div class="skill-pill"><i class="ti ti-brand-google" aria-hidden="true"></i>Google Workspace</div>
+    <div class="skill-pill"><i class="ti ti-settings" aria-hidden="true"></i>Admin Support</div>
+    <div class="skill-pill"><i class="ti ti-users" aria-hidden="true"></i>Customer Service</div>
+    <div class="skill-pill"><i class="ti ti-plane" aria-hidden="true"></i>Travel Coordination</div>
+    <div class="skill-pill"><i class="ti ti-calendar-event" aria-hidden="true"></i>Meeting Coordination</div>
+    <div class="skill-pill"><i class="ti ti-clock" aria-hidden="true"></i>Time Management</div>
+    <div class="skill-pill"><i class="ti ti-puzzle" aria-hidden="true"></i>Problem Solving</div>
+  </div>
+</section>
+
+<section id="projects" style="background:var(--soft);">
+  <div class="sec-label">Real work samples</div>
+  <div class="sec-title">Projects Portfolio</div>
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <div class="proj-tag"><i class="ti ti-calendar-event" aria-hidden="true"></i>Schedule Management</div>
+      <div class="proj-title">Marketing Campaign Calendar</div>
+      <div class="proj-desc">Managed and organized a full monthly marketing schedule for a client — including recurring campaigns such as "Roda Happiness," new product testing, bundling promos, loyalty rewards, and product launches. All events tracked and coordinated via Google Calendar across the entire team.</div>
+      <div class="proj-footer">
+        <div class="proj-tool"><i class="ti ti-brand-google" aria-hidden="true"></i>Google Calendar</div>
+        <span style="font-size:0.78rem;font-family:system-ui,sans-serif;color:var(--color-text-secondary);">Oct 2026</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-tag"><i class="ti ti-table" aria-hidden="true"></i>Data Entry</div>
+      <div class="proj-title">Customer Data Entry & Management</div>
+      <div class="proj-desc">Built and maintained a structured Google Sheets database to record, track, and manage customer data. Organized entries for easy filtering and reporting, ensuring clean and consistent data for the client's business operations.</div>
+      <div class="proj-footer">
+        <div class="proj-tool"><i class="ti ti-brand-google" aria-hidden="true"></i>Google Sheets</div>
+        <a class="proj-link" href="https://docs.google.com/spreadsheets/d/13kWu3dkwfVQ7zB13jTvRt1HsUdjRrLnro59R6cli9W8/edit" target="_blank"><i class="ti ti-external-link" aria-hidden="true"></i>View sheet</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-tag"><i class="ti ti-file-spreadsheet" aria-hidden="true"></i>Data Organization</div>
+      <div class="proj-title">Business Data Spreadsheet (Project A)</div>
+      <div class="proj-desc">Created and structured a comprehensive spreadsheet for business data tracking. Organized records systematically for easy access, reporting, and analysis — supporting the client's daily operational and administrative needs.</div>
+      <div class="proj-footer">
+        <div class="proj-tool"><i class="ti ti-brand-google" aria-hidden="true"></i>Google Sheets</div>
+        <a class="proj-link" href="https://docs.google.com/spreadsheets/d/1bH55k84DBBbWZvk-AD0rR1bLVy1PVHWK/edit" target="_blank"><i class="ti ti-external-link" aria-hidden="true"></i>View sheet</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-tag"><i class="ti ti-file-spreadsheet" aria-hidden="true"></i>Data Organization</div>
+      <div class="proj-title">Business Data Spreadsheet (Project B)</div>
+      <div class="proj-desc">Handled data entry, formatting, and organization for a second client project. Ensured all records were accurate, consistently formatted, and structured to support smooth business reporting and decision-making.</div>
+      <div class="proj-footer">
+        <div class="proj-tool"><i class="ti ti-brand-google" aria-hidden="true"></i>Google Sheets</div>
+        <a class="proj-link" href="https://docs.google.com/spreadsheets/d/1H--GghDAsRa4LCbugrTvKDBGBSB85nRq/edit" target="_blank"><i class="ti ti-external-link" aria-hidden="true"></i>View sheet</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-tag"><i class="ti ti-chart-bar" aria-hidden="true"></i>Reporting</div>
+      <div class="proj-title">Sales & Operations Data Report</div>
+      <div class="proj-desc">Compiled and organized sales and operational data into a clean, structured spreadsheet report. Data was categorized, verified, and formatted for presentation to management — helping the team make faster and more informed decisions.</div>
+      <div class="proj-footer">
+        <div class="proj-tool"><i class="ti ti-brand-google" aria-hidden="true"></i>Google Sheets</div>
+        <a class="proj-link" href="https://docs.google.com/spreadsheets/d/1a1tEORZ6Kehp3XFHQ_WrryEG8M_N_KL2PIxItWBcaQc/edit" target="_blank"><i class="ti ti-external-link" aria-hidden="true"></i>View sheet</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <div class="sec-label">Career history</div>
+  <div class="sec-title">Work Experience</div>
+  <div class="exp-list">
+    <div class="exp-card">
+      <div class="exp-header">
+        <div><div class="exp-role">Freelance &amp; Online Admin</div><div class="exp-company">Self-employed — Remote</div></div>
+        <div class="exp-date">2026 – Present</div>
+      </div>
+      <ul class="exp-points">
+        <li>Managing order and product stock data</li>
+        <li>Responding to customers and assisting with online administrative processes</li>
+        <li>Creating simple sales records and organizing product data for easy access</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header">
+        <div><div class="exp-role">Store Manager / Operational Coordinator</div><div class="exp-company">PT. Deles Karya Sejati — Banyuwangi</div></div>
+        <div class="exp-date">Mar 2024 – Mar 2026</div>
+      </div>
+      <ul class="exp-points">
+        <li>Coordinating daily store operations and managing system reports</li>
+        <li>Assisting with daily–monthly sales production projection systems</li>
+        <li>Managing inventory administration, stocktaking, and stock checks based on sales data</li>
+        <li>Handling shifting, overtime, and other administrative documents</li>
+        <li>Supporting operations across team, store, and management levels</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header">
+        <div><div class="exp-role">Admin Project</div><div class="exp-company">PT Media Cipta Perkasa — Surabaya</div></div>
+        <div class="exp-date">Jun 2023 – Jan 2024</div>
+      </div>
+      <ul class="exp-points">
+        <li>Prepared and reported work plans and results to project stakeholders</li>
+        <li>Managed documents, invoices, tax invoices, and delivery orders</li>
+        <li>Assisted in checking data and goods during the project</li>
+        <li>Maintained neat and organized administrative archives</li>
+        <li>Coordinated with team members to ensure smooth workflow</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:2rem;">
+    <div class="sec-label">Education</div>
+    <div class="exp-card" style="margin-top:0.8rem;">
+      <div class="exp-header">
+        <div><div class="exp-role">Bachelor of Law (S.H.)</div><div class="exp-company">State Islamic University Jember — Indonesia</div></div>
+        <div class="exp-date">2017 – 2021</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="sec-label">Get in touch</div>
+      <div class="divider"></div>
+      <h2 class="contact-title">Let's Work Together</h2>
+      <p class="contact-desc">Looking for a reliable, detail-oriented admin or data entry specialist? I'm open to remote opportunities worldwide and respond within 24 hours.</p>
+      <div class="contact-details">
+        <div class="c-detail"><i class="ti ti-mail" aria-hidden="true"></i><a href="mailto:dianafitristorage@gmail.com">dianafitristorage@gmail.com</a></div>
+        <div class="c-detail"><i class="ti ti-phone" aria-hidden="true"></i>+62 882-2005-3143</div>
+        <div class="c-detail"><i class="ti ti-map-pin" aria-hidden="true"></i>Sempu, Banyuwangi, Indonesia</div>
+        <div class="c-detail"><i class="ti ti-brand-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/dianamaniatulfitri/" target="_blank">linkedin.com/in/dianamaniatulfitri</a></div>
+        <div class="c-detail"><i class="ti ti-world" aria-hidden="true"></i>Available for remote work worldwide</div>
+      </div>
+    </div>
+    <div class="form">
+      <div><label class="fl">Your name</label><input class="fi" type="text" placeholder="John Smith" /></div>
+      <div><label class="fl">Email</label><input class="fi" type="email" placeholder="john@company.com" /></div>
+      <div><label class="fl">Subject</label><input class="fi" type="text" placeholder="e.g. Data entry project, Admin support..." /></div>
+      <div><label class="fl">Message</label><textarea class="fi" placeholder="Tell me about your project..."></textarea></div>
+      <button class="btn">Send Message</button>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 Diana Fitri · Data Entry & Admin Specialist · Banyuwangi, Indonesia</footer>
